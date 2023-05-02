@@ -1,0 +1,18 @@
+# Below is the resource block which creates EC2 Instance
+resource "aws_instance" "test" {
+  ami           = "ami-02396cdd13e9a1257"
+  instance_type = "t2.micro"
+  key_name      = "stage-key"
+  associate_public_ip_address = "true"
+  tags = {
+    Name = "my-first-tf-instance"
+  }
+}
+
+
+# Below is the provider which helps in connecting with AWS Account
+provider "aws" {
+  region = "us-east-1"
+  access_key = ""
+  secret_key = ""
+}
